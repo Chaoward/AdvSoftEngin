@@ -17,7 +17,8 @@ public class CommisionEmployee extends Employee
         grossSales = sales;
     }
 
-    public @Override String prettyInfo() {
+    @Override
+    public String prettyInfo() {
         return super.prettyInfo() + "\n"
             + "Commision Rate : " + commisionRate + "\n"
             + "Gross Sales : " + grossSales;

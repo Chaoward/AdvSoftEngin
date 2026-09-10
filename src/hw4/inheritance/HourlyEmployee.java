@@ -16,7 +16,8 @@ public class HourlyEmployee extends Employee {
         hoursWorked = hrs;
     }
 
-    public @Override String prettyInfo() {
+    @Override
+    public String prettyInfo() {
         return super.prettyInfo() + "\n"
             + "Wage : " + wage + "\n"
             + "Hours Worked : " + hoursWorked;

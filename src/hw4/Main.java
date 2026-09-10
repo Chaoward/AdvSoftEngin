@@ -1,10 +1,15 @@
 package hw4;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import hw4.inheritance.*;
+import hw4.interfaces.*;
 
 public class Main {
     public static void main(String[] args) {
         inheritance();
+        interfacing();
     }
 
     public static void inheritance() {
@@ -28,6 +33,28 @@ public class Main {
 
     public static void interfacing() {
         System.out.println("===== Interface =====");
+        ArrayList<IPayable> payList = new ArrayList<IPayable>();
+
+        //populate list 
+        Random rand = new Random(System.currentTimeMillis());
+        double maxPay = 44d;
+        double maxInvoice = 3000d;
+        double maxHours = 300d;
+        payList.add( new Freelancer("Joe", "Schmo", rand.nextDouble() * maxPay, rand.nextDouble() * maxHours) );
+        payList.add( new Freelancer("Jane", "Doe", rand.nextDouble() * maxPay, rand.nextDouble() * maxHours) );
+        payList.add( new VendorInvoice("Red Inc.", "0372372", rand.nextDouble() * maxInvoice) );
+        payList.add( new VendorInvoice("Blu Co.", "1002122", rand.nextDouble() * maxInvoice) );
         
+        //calculate total
+        double total = 0d;
+        for (IPayable pay : payList) {
+            total += pay.calculatePayment();
+            pay.print();
+            System.out.println("\n---");
+        }
+        System.out.println("==================");
+        System.out.print("Total Payout : $");
+        System.out.format("%.2f", total);
+        System.out.println();
     }
 }

@@ -13,7 +13,8 @@ public class BaseEmployee extends Employee {
         baseSalary = sal;
     }
 
-    public @Override String prettyInfo() {
+    @Override
+    public String prettyInfo() {
         return super.prettyInfo() + "\n"
             + "Base Salary : " + baseSalary;
     }
