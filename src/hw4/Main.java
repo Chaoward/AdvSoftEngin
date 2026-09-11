@@ -5,11 +5,15 @@ import java.util.Random;
 
 import hw4.inheritance.*;
 import hw4.interfaces.*;
+import hw4.polymorph.CargoShip;
+import hw4.polymorph.CruiseShip;
+import hw4.polymorph.Ship;
 
 public class Main {
     public static void main(String[] args) {
         inheritance();
         interfacing();
+        polymorphism();
     }
 
     public static void inheritance() {
@@ -55,6 +59,29 @@ public class Main {
         System.out.println("==================");
         System.out.print("Total Payout : $");
         System.out.format("%.2f", total);
+        System.out.println();
+    }
+
+    public static void polymorphism() {
+        System.out.println("===== Polymorphism =====");
+        Random rand = new Random(System.currentTimeMillis());
+        Ship[] ships = new Ship[3];
+
+        ships[0] = new Ship("Normal Ship", Integer.toString(rand.nextInt(1970, 2026)));
+        ships[1] = new CruiseShip("Cruise Ship", 
+            Integer.toString(rand.nextInt(1950, 2026)), 
+            rand.nextInt(100, 500)
+        );
+        ships[2] = new CargoShip("Cargo Ship",
+            Integer.toString(rand.nextInt(1950, 2026)),
+            rand.nextInt(1000, 500000)
+        );
+
+        for (Ship ship : ships) {
+            ship.print();
+            System.out.println("---");
+        }
+
         System.out.println();
     }
 }
