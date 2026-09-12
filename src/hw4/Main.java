@@ -7,16 +7,19 @@ import hw4.aggregation.*;
 import hw4.inheritance.*;
 import hw4.interfaces.*;
 import hw4.polymorph.*;
+import hw4.composition.*;
+
 public class Main {
     public static void main(String[] args) {
         inheritance();
         interfacing();
         polymorphism();
         aggregation();
+        composition();
     }
 
     public static void inheritance() {
-        System.out.println("===== Inheirtance =====");
+        System.out.println("\n===== Inheirtance =====");
         Employee[] employees = new Employee[7];
 
         employees[0] = new SalariedEmployee("Joe", "Jones", "111-11-1111", 2500f);
@@ -35,7 +38,7 @@ public class Main {
 
 
     public static void interfacing() {
-        System.out.println("===== Interface =====");
+        System.out.println("\n===== Interface =====");
         ArrayList<IPayable> payList = new ArrayList<IPayable>();
 
         //populate list 
@@ -62,7 +65,7 @@ public class Main {
     }
 
     public static void polymorphism() {
-        System.out.println("===== Polymorphism =====");
+        System.out.println("\n===== Polymorphism =====");
         Random rand = new Random(System.currentTimeMillis());
         Ship[] ships = new Ship[3];
 
@@ -85,6 +88,7 @@ public class Main {
     }
 
     public static void aggregation() {
+        System.out.println("\n===== Aggregation =====");
         Instructor instructor1 = new Instructor("Nima", "Davarpanah", "3-2636");
         Textbook textbook1 = new Textbook("Clean Code", "Robert C. Martin");
         Course course = new Course("Advance Software Engineering");
@@ -98,5 +102,40 @@ public class Main {
         course.textbook = textbook2;
         course.print();
         System.out.println();
+    }
+
+    public static void composition() {
+        System.out.println("\n===== Composition =====");
+        Folder root = new Folder("php_demo1");
+        Folder tempFolder = new Folder("Source Files");
+
+        root.folderList.add(tempFolder);
+        root.folderList.add(new Folder("Include Path"));
+        root.folderList.add(new Folder("Remote Files"));
+        tempFolder.fileList.add(new File(".htaccess"));
+        tempFolder.fileList.add(new File(".htrouter.php"));
+        tempFolder.fileList.add(new File("index.html"));
+        tempFolder.folderList.add(new Folder(".phalcon"));
+        tempFolder.folderList.add(new Folder("cache"));
+        tempFolder.folderList.add(new Folder("public"));
+        tempFolder.folderList.add(new Folder("app"));
+        tempFolder = tempFolder.folderList.getLast();
+        tempFolder.folderList.add(new Folder("config"));
+        tempFolder.folderList.add(new Folder("controllers"));
+        tempFolder.folderList.add(new Folder("library"));
+        tempFolder.folderList.add(new Folder("migrations"));
+        tempFolder.folderList.add(new Folder("views"));
+
+        root.printAll();
+
+        System.out.println("------------------");
+        
+        root.folderList.getFirst().folderList.removeLast();
+        root.printAll();
+
+        System.out.println("------------------");
+        
+        root.folderList.getFirst().folderList.removeLast();
+        root.printAll();
     }
 }
