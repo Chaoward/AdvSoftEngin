@@ -3,17 +3,16 @@ package hw4;
 import java.util.ArrayList;
 import java.util.Random;
 
+import hw4.aggregation.*;
 import hw4.inheritance.*;
 import hw4.interfaces.*;
-import hw4.polymorph.CargoShip;
-import hw4.polymorph.CruiseShip;
-import hw4.polymorph.Ship;
-
+import hw4.polymorph.*;
 public class Main {
     public static void main(String[] args) {
         inheritance();
         interfacing();
         polymorphism();
+        aggregation();
     }
 
     public static void inheritance() {
@@ -82,6 +81,22 @@ public class Main {
             System.out.println("---");
         }
 
+        System.out.println();
+    }
+
+    public static void aggregation() {
+        Instructor instructor1 = new Instructor("Nima", "Davarpanah", "3-2636");
+        Textbook textbook1 = new Textbook("Clean Code", "Robert C. Martin");
+        Course course = new Course("Advance Software Engineering");
+        course.instructor = instructor1;
+        course.textbook = textbook1;
+        course.print();
+        System.out.println("------------------");
+        Instructor instructor2 = new Instructor("John", "Smith", "1-2222");
+        Textbook textbook2 = new Textbook("Spaghetti Code", "Me");
+        course.instructor = instructor2;
+        course.textbook = textbook2;
+        course.print();
         System.out.println();
     }
 }
