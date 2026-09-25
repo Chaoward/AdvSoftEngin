@@ -1,0 +1,29 @@
+@startuml hw4-composition
+
+class File {
+    -name {get,set} : String
+
+    +File(name : String)
+
+    +print() : void
+}
+
+class Folder {
+    -name {get,set} : String
+    +fileList <<read-only>> : ArrayList<File>
+    +folderList <<read-only>> : ArrayList<Folder>
+
+    +Folder(name : String)
+    +Folder(name : String, files : ArrayList<File>, folders : ArrayList<Folder>)
+
+    +print() : void
+    +printAll() : void
+    +printAll(tabCount : int) : void
+}
+
+
+
+Folder "1" --* "many" File
+Folder "1" --* "many" Folder
+
+@enduml

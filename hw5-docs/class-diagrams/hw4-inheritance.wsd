@@ -1,0 +1,58 @@
+@startuml hw4-inheritance
+
+abstract class Employee {
+    #firstName {get,set} : String
+    #lastName {get,set} : String
+    #socialSecurity {get,set} : String
+
+    +Employee(f : String, l : String, ssn : String)
+
+    +prettyInfo() : String
+}
+
+class BaseEmployee {
+    -baseSalary {get,set} : float
+
+    +BaseEmployee(f : String, l : String, ssn : String)
+    +BaseEmployee(f : String, l : String, ssn : String, sal : float)
+
+    +prettyInfo() : String
+}
+
+class CommisionEmployee {
+    -commisionRate {get,set} : float
+    -grossSales {get,set} : float
+
+    +CommisionEmployee(f : String, l : String, ssn : String)
+    +CommisionEmployee(f : String, l : String, ssn : String, rate : float, sales : float)
+
+    +prettyInfo() : String
+}
+
+class HourlyEmployee {
+    -wage {get,set} : float
+    -hoursWorked {get,set} : float
+
+    +HourlyEmployee(f : String, l : String, ssn : String)
+    +HourlyEmployee(f : String, l : String, ssn : String, w : float, hrs : float)
+
+    +prettyInfo() : String
+}
+
+class SalariedEmployee {
+    -weeklySalary {get,set} : float
+
+    +SalariedEmployee(f : String, l : String, ssn : String)
+    +SalariedEmployee(f : String, l : String, ssn : String, sal : float)
+
+    +prettyInfo() : String
+}
+
+
+
+Employee<|--BaseEmployee
+Employee<|--SalariedEmployee
+Employee<|--CommisionEmployee
+Employee<|--HourlyEmployee
+
+@enduml

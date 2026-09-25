@@ -1,0 +1,33 @@
+@startuml hw4-polymorph
+
+class Ship {
+    -name {get,set} : String
+    -yearBuilt {get,set} : String
+
+    +Ship(name : String, yearBuilt : String)
+
+    +print() : void
+}
+
+class CruiseShip {
+    -maxPassengers {get,set} : int
+
+    +CruiseShip(name : String, yearBuilt : String, maxPassengers : int)
+
+    +print() : void
+}
+
+class CargoShip {
+    -maxWeightByTon {get,set} : int
+
+    +CargoShip(name : String, yearBuilt : String, maxWeightByTon : int)
+
+    +print() : void
+}
+
+
+
+Ship<|--CruiseShip
+Ship<|--CargoShip
+
+@enduml

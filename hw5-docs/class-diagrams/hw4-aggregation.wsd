@@ -1,0 +1,36 @@
+@startuml hw4-aggregation
+
+class Course {
+    +instructor : Instructor
+    +textbook : Textbook
+    -name {get,set} : String
+
+    +Course(name : String)
+
+    +print() : void
+}
+
+class Instructor {
+    -firstName {get,set} : String
+    -lastName {get,set} : String
+    -officeNum {get,set} : String
+
+    +Instructor(firstName : String, lastName : String)
+    +Instructor(firstName : String, lastName : String, officeNum : String)
+}
+
+class Textbook {
+    -title {get,set} : String
+    -author {get,set} : String
+    -publisher {get,set} : String
+
+    +Textbook(title : String, author : String)
+    +Textbook(title : String, author : String, publisher : String)
+}
+
+
+
+Course --o Instructor
+Course --o Textbook
+
+@enduml
