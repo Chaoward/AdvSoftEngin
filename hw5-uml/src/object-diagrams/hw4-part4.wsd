@@ -1,0 +1,25 @@
+@startuml hw4-part4
+
+object "<u>instructor1:Instructor</u>" as instruct1 {
+    firstName = "Nima"
+    lastName = "Davarpanah"
+    officeNum = "3-2636"
+}
+
+object "<u>textbook1:Textbook</u>" as text1 {
+    title = "Clean Code"
+    author = "Robert C. Martin"
+}
+
+object "<u>course:Course</u>" as course {
+    name = "Advance Software Engineering"
+    instructor = instructor1
+    textbook = textbook1
+}
+
+
+
+course --o instruct1
+course --o text1
+
+@enduml

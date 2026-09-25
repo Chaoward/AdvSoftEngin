@@ -1,0 +1,20 @@
+@startuml hw4-part3
+
+object "<u>ship0:Ship</u>" as normal {
+    name = "Normal Ship"
+    yearBuilt = randomInt(1970, 2026)
+}
+
+object "<u>ship1:CruiseShip</u>" as cruise {
+    name = "Cruise Ship"
+    yearBuilt = randomInt(1970, 2026)
+    maxPassengers = randomInt(100, 500)
+}
+
+object "<u>ship2:CargoShip</u>" as cargo {
+    name = "Cargo Ship"
+    yearBuilt = randomInt(1970, 2026)
+    maxWeightByTon = randomInt(1000, 500000)
+}
+
+@enduml

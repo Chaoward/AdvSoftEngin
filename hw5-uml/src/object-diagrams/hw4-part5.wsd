@@ -1,0 +1,55 @@
+@startuml hw4-part5
+
+object "<u>root:Folder</u>" as root {
+    name = "php_demo1"
+}
+
+object "<u>source:Folder</u>" as source {
+    name = "Source Files"
+}
+
+object "<u>includePath:Folder</u>" as root_path {
+    name = "Include Path"
+}
+
+object "<u>remoteFiles:Folder</u>" as root_remote {
+    name = "Remote Files"
+}
+
+object "<u>.phalcon:Folder</u>" as source_phalcon {
+    name = ".phalcon"
+}
+
+object "<u>cache:Folder</u>" as source_cache {
+    name = "cache"
+}
+
+object "<u>public:Folder</u>" as source_public {
+    name = "public"
+}
+
+object "<u>htaccess:File</u>" as source_htaccess {
+    name = ".htaccess"
+}
+
+object "<u>htrouter:File</u>" as source_htrouter {
+    name = ".htrouter.php"
+}
+
+object "<u>index:File</u>" as source_index {
+    name = "index.html"
+}
+
+
+
+root --* source
+root --* root_path
+root --* root_remote
+source --* source_cache
+source --* source_htaccess
+source --* source_htrouter
+source --* source_index
+source --* source_phalcon
+source --* source_public
+
+@enduml
