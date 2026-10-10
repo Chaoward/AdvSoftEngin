@@ -1,0 +1,30 @@
+@startuml
+title School Facility Rental - Sequence
+
+actor Renter
+participant Website
+participant "School Staff" as Staff
+participant "Payment Service" as Pay
+participant "Email Service" as Email
+
+Renter -> Website: submit request
+Website -> Staff: send request for review
+Website -> Email: send confirmation message
+Website -> Renter: display request was sent
+Email -> Renter: notify request was received
+
+alt staff approved
+  Staff --> Pay: send payment info
+  alt payment approved
+    Pay --> Staff: approve payment
+    Staff --> Email: send approval message
+    Email --> Renter: notify approval
+  else payment rejected
+    Pay --> Staff: reject payment
+    Staff --> Website: display rejection
+  end
+else staff rejected
+  Staff --> Email: send rejection
+  Email --> Renter: notify rejection
+end
+@enduml
