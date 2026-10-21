@@ -1,7 +1,5 @@
 package hw7.meals.diet_plan;
 
-import java.util.Random;
-
 import hw7.meals.Carb;
 import hw7.meals.Fat;
 import hw7.meals.Protein;
