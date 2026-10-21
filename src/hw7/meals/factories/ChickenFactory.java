@@ -6,9 +6,7 @@ import hw7.meals.products.Chicken;
 public class ChickenFactory extends ProteinFactory {
     private static ChickenFactory instance;
 
-    private ChickenFactory() {
-        instance = new ChickenFactory();
-    }
+    private ChickenFactory() {}
 
     public static ChickenFactory getInstance() {
         if (instance == null) {

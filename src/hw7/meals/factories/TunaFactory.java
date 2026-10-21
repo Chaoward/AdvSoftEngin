@@ -6,9 +6,7 @@ import hw7.meals.products.Tuna;
 public class TunaFactory extends FatFactory {
     private static TunaFactory instance;
 
-    private TunaFactory() {
-        instance = new TunaFactory();
-    }
+    private TunaFactory() {}
 
     public static TunaFactory getInstance() {
         if (instance == null) {

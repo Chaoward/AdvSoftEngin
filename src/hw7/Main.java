@@ -1,15 +1,15 @@
 package hw7;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import hw7.pizza.*;
-
+import hw7.meals.*;
+import hw7.meals.diet_plan.*;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("//// PIZZA BUILDER \\\\\\\\");
         pizza();
+        System.out.println("\n//// MEAL PLANNER \\\\\\\\");
+        meals();
     }
 
     public static void pizza() {
@@ -105,6 +105,17 @@ public class Main {
 
 
     public static void meals() {
-        
+        Customer[] customers = new Customer[] {
+            new Customer("John", StandardDietPlan.getInstance()),
+            new Customer("Jane", StandardDietPlan.getInstance()),
+            new Customer("Smith", StandardDietPlan.getInstance()),
+            new Customer("Blane", PaleoPlan.getInstance()),
+            new Customer("Clair", VeganPlan.getInstance()),
+            new Customer("William", NutAllergyPlan.getInstance())
+        };
+
+        for (Customer c : customers) {
+            c.printPlan();
+        }
     }
 }

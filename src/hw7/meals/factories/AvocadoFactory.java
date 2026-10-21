@@ -6,9 +6,7 @@ import hw7.meals.products.Avocado;
 public class AvocadoFactory extends FatFactory {
     private static AvocadoFactory instance;
 
-    private AvocadoFactory() {
-        instance = new AvocadoFactory();
-    }
+    private AvocadoFactory() {}
 
     public static AvocadoFactory getInstance() {
         if (instance == null) {

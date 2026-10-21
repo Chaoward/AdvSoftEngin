@@ -6,9 +6,7 @@ import hw7.meals.products.Tofu;
 public class TofuFactory extends ProteinFactory {
     private static TofuFactory instance;
 
-    private TofuFactory() {
-        instance = new TofuFactory();
-    }
+    private TofuFactory() {}
 
     public static TofuFactory getInstance() {
         if (instance == null) {

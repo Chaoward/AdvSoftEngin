@@ -6,9 +6,7 @@ import hw7.meals.products.Pistachio;
 public class PistachioFactory extends CarbFactory {
     private static PistachioFactory instance;
 
-    private PistachioFactory() {
-        instance = new PistachioFactory();
-    }
+    private PistachioFactory() {}
 
     public static PistachioFactory getInstance() {
         if (instance == null) {

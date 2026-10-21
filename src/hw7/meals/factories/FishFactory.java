@@ -6,9 +6,7 @@ import hw7.meals.products.Fish;
 public class FishFactory extends ProteinFactory {
     private static FishFactory instance;
 
-    private FishFactory() {
-        instance = new FishFactory();
-    }
+    private FishFactory() {}
 
     public static FishFactory getInstance() {
         if (instance == null) {

@@ -6,9 +6,7 @@ import hw7.meals.products.Lentils;
 public class LentilsFactory extends CarbFactory {
     private static LentilsFactory instance;
 
-    private LentilsFactory() {
-        instance = new LentilsFactory();
-    }
+    private LentilsFactory() {}
 
     public static LentilsFactory getInstance() {
         if (instance == null) {

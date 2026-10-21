@@ -6,9 +6,7 @@ import hw7.meals.products.Bread;
 public class BreadFactory extends CarbFactory {
     private static BreadFactory instance;
 
-    private BreadFactory() {
-        instance = new BreadFactory();
-    }
+    private BreadFactory() {}
 
     public static BreadFactory getInstance() {
         if (instance == null) {

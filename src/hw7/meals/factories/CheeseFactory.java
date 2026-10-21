@@ -6,9 +6,7 @@ import hw7.meals.products.Cheese;
 public final class CheeseFactory extends CarbFactory {
     private static CheeseFactory instance;
 
-    private CheeseFactory() {
-        instance = new CheeseFactory();
-    }
+    private CheeseFactory() {}
 
     public static CheeseFactory getInstance() {
         if (instance == null) {

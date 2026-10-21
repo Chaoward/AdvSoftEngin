@@ -7,7 +7,6 @@ public class BeefFactory extends ProteinFactory {
     private static BeefFactory instance;
 
     private BeefFactory() {
-        instance = new BeefFactory();
     }
 
     public static BeefFactory getInstance() {

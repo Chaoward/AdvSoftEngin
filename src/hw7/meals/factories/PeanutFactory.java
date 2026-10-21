@@ -6,9 +6,7 @@ import hw7.meals.products.Peanuts;
 public class PeanutFactory extends FatFactory {
     private static PeanutFactory instance;
 
-    private PeanutFactory() {
-        instance = new PeanutFactory();
-    }
+    private PeanutFactory() {}
 
     public static PeanutFactory getInstance() {
         if (instance == null) {
