@@ -17,4 +17,8 @@ public class Calculator {
     public int divide(int x, int y) {
         return x / y;
     }
+
+    public Boolean isEven(int value) {
+        return value % 2 == 0;
+    }
 }

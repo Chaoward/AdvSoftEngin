@@ -49,4 +49,16 @@ public class CalculatorTest {
         assertEquals(calculator.divide(-8, 2), -4);
         assertEquals(calculator.divide(-8, -2), 4);
     }
+
+    @Test
+    public void testIsEven() {
+        assertEquals(calculator.isEven(0), true);
+        assertEquals(calculator.isEven(1), false);
+        assertEquals(calculator.isEven(2), true);
+        assertEquals(calculator.isEven(-2), true);
+        assertEquals(calculator.isEven(1 + 3), true);
+        assertEquals(calculator.isEven(2 + 3), false);
+        assertEquals(calculator.isEven(2 * 13), true);
+        assertEquals(calculator.isEven(3 * 13), false);
+    }
 }
