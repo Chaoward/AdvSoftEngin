@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import advsoft.Calculator;
@@ -40,25 +42,27 @@ public class CalculatorTest {
     @Test
     public void testDivide() {
         assertEquals(calculator.divide(2, 1), 2);
-        assertThrows(
-            ArithmeticException.class,
-            () -> calculator.divide(1, 0)
-        );
         assertEquals(calculator.divide(10, 4), 2);
         assertEquals(calculator.divide(100, 9999), 0);
         assertEquals(calculator.divide(-8, 2), -4);
         assertEquals(calculator.divide(-8, -2), 4);
+        assertThrows(
+            ArithmeticException.class,
+            () -> calculator.divide(1, 0)
+        );
     }
 
     @Test
     public void testIsEven() {
-        assertEquals(calculator.isEven(0), true);
-        assertEquals(calculator.isEven(1), false);
-        assertEquals(calculator.isEven(2), true);
-        assertEquals(calculator.isEven(-2), true);
-        assertEquals(calculator.isEven(1 + 3), true);
-        assertEquals(calculator.isEven(2 + 3), false);
-        assertEquals(calculator.isEven(2 * 13), true);
-        assertEquals(calculator.isEven(3 * 13), false);
+        assertTrue(calculator.isEven(0));
+        assertTrue(calculator.isEven(2));
+        assertTrue(calculator.isEven(-2));
+        assertTrue(calculator.isEven(1 + 3));
+        assertTrue(calculator.isEven(2 * 13));
+
+        assertFalse(calculator.isEven(1));
+        assertFalse(calculator.isEven(-3));
+        assertFalse(calculator.isEven(2 + 3));
+        assertFalse(calculator.isEven(3 * 13));
     }
 }
