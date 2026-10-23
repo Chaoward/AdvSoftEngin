@@ -25,4 +25,16 @@ public class CalculatorTest {
         assertEquals(calculator.subtract(52, -38), 90);
         assertEquals(calculator.subtract(-52, -38), -14);
     }
+
+    @Test
+    public void testMultiply() {
+        assertEquals(calculator.multiply(2, 1), 2);
+        assertEquals(calculator.multiply(1, 0), 0);
+        assertEquals(calculator.multiply(5, 4), 20);
+        assertEquals(calculator.multiply(100, 9999), 999900);
+        assertEquals(calculator.multiply(-8, 2), -16);
+        assertEquals(calculator.multiply(-8, -2), 16);
+    }
+
+    
 }
