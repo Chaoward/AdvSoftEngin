@@ -14,19 +14,19 @@ public class DateCheckerTest {
 
     @ParameterizedTest
     @EnumSource(value = Month.class, names = {"JANUARY", "MARCH", "MAY", "JULY", "AUGUST", "OCTOBER", "DECEMBER"})
-    public void TestHas31Days_true(Month month) {
+    public void testHas31Days_true(Month month) {
         assertTrue(dateChecker.has31Days(month));
     }
 
     @ParameterizedTest
     @EnumSource(value = Month.class, names = {"APRIL", "JUNE", "SEPTEMBER", "NOVEMBER"})
-    public void TestHas31Days_false(Month month) {
+    public void testHas31Days_false(Month month) {
         assertFalse(dateChecker.has31Days(month));
     }
 
 
     @Test
-    public void TestHas31Days_edgeCase() {
+    public void testHas31Days_edgeCase() {
         assertThrows(
             IllegalArgumentException.class,
             () -> dateChecker.has31Days(null)
