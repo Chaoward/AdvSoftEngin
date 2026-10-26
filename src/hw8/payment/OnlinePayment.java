@@ -6,7 +6,6 @@ public class OnlinePayment extends Payment {
 
     public OnlinePayment(NotificationChannel channel) {
         super(channel);
-        this.typeName = "Online Payment";
     }
 
 }

@@ -3,7 +3,6 @@ package hw8.payment;
 import hw8.channels.NotificationChannel;
 
 public abstract class Payment {
-    protected String typeName;
     private NotificationChannel notifyChannel;
 
     protected Payment(NotificationChannel channel) {
