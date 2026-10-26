@@ -1,18 +1,16 @@
 package hw8;
 
 import hw8.channels.*;
-import hw8.decorator.FoodItem;
-import hw8.decorator.FoodOrder;
-import hw8.decorator.food.BurgerItem;
-import hw8.decorator.food.FriesItem;
-import hw8.decorator.toppings.CheeseTopping;
-import hw8.decorator.toppings.OnionTopping;
-import hw8.decorator.toppings.SauceTopping;
+import hw8.decorator.*;
+import hw8.decorator.food.*;
+import hw8.decorator.order.*;
+import hw8.decorator.toppings.*;
 import hw8.payment.*;
 
 public class Main {
     public static void main() {
-        //bridge();
+        bridge();
+        System.out.println();
         decorator();
     }
 
@@ -52,12 +50,20 @@ public class Main {
         OnionTopping onionCheeseBurger = new OnionTopping("Onion", 1, cheeseBurger);
         SauceTopping specialBurger = new SauceTopping("House Special", 2, onionCheeseBurger);
         CheeseTopping swissBurger = new CheeseTopping("Swiss Cheese", 1, burger);
-        
+
         SauceTopping ketchupFries = new SauceTopping("Ketchup", 0, fries);
         SauceTopping specialFries = new SauceTopping("House Special", 2, fries);
 
-        FoodItem[] foodList1 = {specialBurger, swissBurger, fries, ketchupFries, specialFries};
-        FoodOrder order1 = new FoodOrder(foodList1);
-        order1.printOrder();
+        FoodItem[] foodList = {specialBurger, swissBurger, fries, ketchupFries, specialFries};
+        FoodOrder order = new FoodOrder("Regular Order", foodList);
+        order.printOrder();
+
+        order.name = "Member Order";
+        MembershipOrder memberOrder = new MembershipOrder(order);
+        memberOrder.printOrder();
+
+        order.name = "Gold Member Order";
+        GoldOrder goldOrder = new GoldOrder(order);
+        goldOrder.printOrder();
     }
 }

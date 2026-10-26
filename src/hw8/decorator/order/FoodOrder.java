@@ -1,9 +1,13 @@
-package hw8.decorator;
+package hw8.decorator.order;
 
-public class FoodOrder {
+import hw8.decorator.FoodItem;
+
+public class FoodOrder implements CustomerOrder {
+    public String name;
     public FoodItem[] foodItems;
 
-    public FoodOrder(FoodItem[] foodItems) {
+    public FoodOrder(String name, FoodItem[] foodItems) {
+        this.name = name;
         this.foodItems = foodItems;
     }
 
@@ -18,10 +22,11 @@ public class FoodOrder {
     }
 
     public void printOrder() {
-        System.out.println("==== Order ====");
+        System.out.println("==== " + name + " ====");
         for (FoodItem food : foodItems) {
             System.out.println("| " + food.getName() + " : $" + food.getCost());
         }
         System.out.println("TOTAL COST : $" + getTotalCost());
     }
+
 }
