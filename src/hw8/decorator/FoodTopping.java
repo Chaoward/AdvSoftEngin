@@ -5,7 +5,7 @@ public abstract class FoodTopping implements FoodItem {
     protected int toppingCost;
     protected String toppingName;
 
-    protected FoodTopping(FoodItem food) {
+    public FoodTopping(FoodItem food) {
         this.foodItem = food;
     }
 
@@ -13,7 +13,7 @@ public abstract class FoodTopping implements FoodItem {
 
     @Override 
     public String getName() {
-        return toppingName;
+        return toppingName + " " + foodItem.getName();
     }
 
     @Override 
@@ -23,6 +23,10 @@ public abstract class FoodTopping implements FoodItem {
 
     public int getToppingCost() {
         return toppingCost;
+    }
+
+    public String getToppingName() {
+        return toppingName;
     }
 
     public int getFoodCost() {
