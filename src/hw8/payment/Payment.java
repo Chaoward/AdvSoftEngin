@@ -3,13 +3,14 @@ package hw8.payment;
 import hw8.channels.NotificationChannel;
 
 public abstract class Payment {
+    protected String typeName;
     private NotificationChannel notifyChannel;
 
     protected Payment(NotificationChannel channel) {
         notifyChannel = channel;
     }
 
-    protected void sendNotification(String msg) {
+    public void sendNotification(String msg) {
         notifyChannel.sendNotification(msg);
     }
 }
