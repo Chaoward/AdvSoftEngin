@@ -34,4 +34,9 @@ public class Main {
         bitPush.sendNotification("Bitcoin Received.");
         onlinePush.sendNotification("Online Payment Confirmed.");
     }
+
+
+    public void decorator() {
+        
+    }
 }
