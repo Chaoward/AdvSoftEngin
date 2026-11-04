@@ -15,12 +15,16 @@ public class FlyweightTest {
     public void testFont() {
         FontFactory fontFac = FontFactory.instance;
         Font trgt = fontFac.getFont("Comic Sans");
+        Font difFont = new Font("Comic Sans");
 
         assertEquals(trgt, fontFac.getFont("Comic Sans"));
+        assertNotEquals(trgt, difFont);
         assertNotEquals(trgt, fontFac.getFont("Arial"));
 
         trgt = fontFac.getFont("Arial");
+        difFont = new Font("Arial");
         assertEquals(trgt, fontFac.getFont("Arial"));
+        assertNotEquals(trgt, difFont);
         assertNotEquals(trgt, fontFac.getFont("Comic Sans"));
     }
 

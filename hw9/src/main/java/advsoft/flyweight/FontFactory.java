@@ -10,6 +10,14 @@ public class FontFactory {
     private FontFactory() {}
 
     public Font getFont(String name) {
-        return null;
+        for (Font f : pool) {
+            if (f.getName() == name)
+                return f;
+        }
+
+        Font newFont = new Font(name);
+        pool.add(newFont);
+
+        return newFont;
     }
 }
