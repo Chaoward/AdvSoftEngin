@@ -12,17 +12,19 @@ public class FileReading {
         ArrayList<RichCharacter> characters = new ArrayList<RichCharacter>();
 
         try {
-            while ((line = reader.readLine()) != "") {
+            while (reader.ready()) {
+                line = reader.readLine();
                 values = line.split(",");
                 characters.add(new RichCharacter(
                     values[0].charAt(0),
                     new Font(values[1]), 
-                    Integer.getInteger(values[2]), 
+                    Integer.parseInt(values[2]), 
                     new Color(values[3])
                 ));
             }
-
-            return (RichCharacter[])(characters.toArray());
+            
+            RichCharacter[] temp = new RichCharacter[characters.size()];
+            return characters.toArray(temp);
         }
         catch (Exception e) {
             throw e;

@@ -10,4 +10,8 @@ public class Color {
     public String getName() {
         return name;
     }
+
+    public String toString() {
+        return this.name;
+    }
 }
