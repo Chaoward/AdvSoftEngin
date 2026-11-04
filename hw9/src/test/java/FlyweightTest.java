@@ -46,5 +46,4 @@ public class FlyweightTest {
         assertNotEquals(trgt, difColor);
         assertNotEquals(trgt, colorFac.getColor("Red"));
     }
-
 }

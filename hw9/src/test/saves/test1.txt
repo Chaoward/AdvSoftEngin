@@ -1,0 +1,12 @@
+H,Comic Sans,12,Black
+e,Comic Sans,12,Black
+l,Comic Sans,12,Black
+l,Comic Sans,12,Black
+o,Comic Sans,12,Black
+_,Comic Sans,12,Black
+W,Comic Sans,12,Black
+o,Comic Sans,12,Black
+r,Comic Sans,12,Black
+l,Comic Sans,12,Black
+d,Comic Sans,12,Black
+!,Comic Sans,12,Black

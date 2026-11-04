@@ -2,14 +2,20 @@ package advsoft.flyweight;
 
 
 public class RichCharacter {
+    private char character;
     private Font font;
     private int size;
     private Color color;
 
-    public RichCharacter(Font font, int size, Color color) {
+    public RichCharacter(char character, Font font, int size, Color color) {
+        this.character = character;
         this.font = font;
         this.size = size;
         this.color = color;
+    }
+
+    public char getChar() {
+        return character;
     }
 
     public Font getFont() {

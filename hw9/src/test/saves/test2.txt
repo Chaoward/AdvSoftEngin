@@ -1,0 +1,12 @@
+H,Arial,12,Black
+e,Arial,12,Black
+l,Arial,12,Black
+l,Arial,12,Black
+o,Arial,12,Black
+_,Arial,12,Black
+W,Comic Sans,22,Green
+o,Comic Sans,22,Green
+r,Comic Sans,22,Green
+l,Comic Sans,22,Green
+d,Comic Sans,22,Green
+!,Impact,36,Red
