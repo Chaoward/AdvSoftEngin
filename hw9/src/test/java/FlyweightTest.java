@@ -28,6 +28,8 @@ public class FlyweightTest {
         assertEquals(trgt, fontFac.getFont("Arial"));
         assertNotEquals(trgt, difFont);
         assertNotEquals(trgt, fontFac.getFont("Comic Sans"));
+
+        fontFac.printPool();
     }
 
     @Test
@@ -45,5 +47,14 @@ public class FlyweightTest {
         assertEquals(trgt, colorFac.getColor("Blue"));
         assertNotEquals(trgt, difColor);
         assertNotEquals(trgt, colorFac.getColor("Red"));
+
+        colorFac.printPool();
+    }
+
+
+    @Test 
+    public void testSize() {
+        //SizeFactory sizeFac = SizeFactory.getInstance();
+        //Size trgt = SizeFactory.getSize(12);
     }
 }

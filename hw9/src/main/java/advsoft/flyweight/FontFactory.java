@@ -1,23 +1,29 @@
 package advsoft.flyweight;
 
-import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
-public class FontFactory {
-    private ArrayList<Font> pool = new ArrayList<Font>();
+public class FontFactory extends FlyweightFactory<Font> {
+    //private ArrayList<Font> pool = new ArrayList<Font>();
 
     public static final FontFactory instance = new FontFactory();
 
     private FontFactory() {}
 
     public Font getFont(String name) {
-        for (Font f : pool) {
-            if (f.getName() == name)
-                return f;
+        try {
+            return get((Font f) -> f.getName() == name);
         }
+        catch (NoSuchElementException e) {
+            Font newFont = new Font(name);
+            pool.add(newFont);
+            return newFont;
+        }
+    }
 
-        Font newFont = new Font(name);
-        pool.add(newFont);
-
-        return newFont;
+    public void printPool() {
+        System.out.println("===== Font Pool =====");
+        for (Font f : pool) {
+            System.out.println(f.getName());
+        }
     }
 }

@@ -1,23 +1,29 @@
 package advsoft.flyweight;
 
-import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
-public class ColorFactory {
-    private ArrayList<Color> pool = new ArrayList<Color>();
+
+public class ColorFactory extends FlyweightFactory<Color> {
 
     public static final ColorFactory instance = new ColorFactory();
 
     private ColorFactory() {}
 
     public Color getColor(String name) {
-        for (Color c : pool) {
-            if (c.getName() == name)
-                return c;
+        try {
+            return get((Color c) -> c.getName() == name);
         }
+        catch (NoSuchElementException e) {
+            Color newColor = new Color(name);
+            pool.add(newColor);
+            return newColor;
+        }
+    }
 
-        Color newColor = new Color(name);
-        pool.add(newColor);
-
-        return newColor;
+    public void printPool() {
+        System.out.println("===== Color Pool =====");
+        for (Color c : pool) {
+            System.out.println(c.getName());
+        }
     }
 }
