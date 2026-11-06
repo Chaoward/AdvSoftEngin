@@ -1,15 +1,12 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.Test;
 
 import advsoft.flyweight.Color;
 import advsoft.flyweight.ColorFactory;
 import advsoft.flyweight.Font;
 import advsoft.flyweight.FontFactory;
-import advsoft.flyweight.RichCharacter;
 import advsoft.flyweight.Size;
 import advsoft.flyweight.SizeFactory;
 
@@ -56,7 +53,7 @@ public class FlyweightTest {
 
     @Test 
     public void testSize() {
-        SizeFactory sizeFac = SizeFactory.getInstance();
+        SizeFactory sizeFac = SizeFactory.instance;
         Size trgt = sizeFac.getSize(12);
         Size diffSize = sizeFac.getSize(16);
 

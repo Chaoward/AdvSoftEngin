@@ -18,7 +18,7 @@ public class FileReading {
                 characters.add(new RichCharacter(
                     values[0].charAt(0),
                     new Font(values[1]), 
-                    Integer.parseInt(values[2]), 
+                    new Size(Integer.parseInt(values[2])), 
                     new Color(values[3])
                 ));
             }
@@ -31,6 +31,34 @@ public class FileReading {
         }
         finally {
             reader.close();
+        }
+    }
+
+
+    public static void saveFile(String path, RichCharacter[] writeInput) throws IOException, Exception {
+        BufferedWriter writer; //= new BufferedWriter(new FileWriter(path));
+        try {
+            writer = new BufferedWriter(new FileWriter(path));
+        }
+        catch (IOException e) {
+            throw e;
+        }
+        
+        try {
+            for (RichCharacter c : writeInput) {
+                writer.write(
+                    c.getChar() + "," +
+                    c.getFont() + "," +
+                    c.getSize() + "," +
+                    c.getColor() + "\n"
+                );
+            }
+        }
+        catch (Exception e) {
+            throw e;
+        }
+        finally {
+            writer.close();
         }
     }
 }

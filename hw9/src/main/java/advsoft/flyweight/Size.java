@@ -10,4 +10,8 @@ public class Size {
     public int getSize() {
         return size;
     }
+
+    public String toString() {
+        return String.valueOf(size);
+    }
 }

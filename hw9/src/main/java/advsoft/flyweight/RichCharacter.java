@@ -4,10 +4,10 @@ package advsoft.flyweight;
 public class RichCharacter {
     private char character;
     private Font font;
-    private int size;
+    private Size size;
     private Color color;
 
-    public RichCharacter(char character, Font font, int size, Color color) {
+    public RichCharacter(char character, Font font, Size size, Color color) {
         this.character = character;
         this.font = font;
         this.size = size;
@@ -22,11 +22,29 @@ public class RichCharacter {
         return font;
     }
 
-    public int getSize() {
+    public Size getSize() {
         return size;
     }
 
     public Color getColor() {
         return color;
     }
+
+    public void setCharacter(char character) {
+        this.character = character;
+    }
+
+    public void setFont(Font font) {
+        this.font = font;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    
 }

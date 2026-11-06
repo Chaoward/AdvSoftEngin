@@ -3,13 +3,9 @@ package advsoft.flyweight;
 import java.util.NoSuchElementException;
 
 public class SizeFactory extends FlyweightFactory<Size> {
-    private static SizeFactory instance = new SizeFactory();
+    public static final SizeFactory instance = new SizeFactory();
 
     private SizeFactory() {}
-
-    public static SizeFactory getInstance() {
-        return SizeFactory.instance;
-    }
 
     public Size getSize(int size) {
         try {

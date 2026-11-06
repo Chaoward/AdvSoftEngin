@@ -9,4 +9,9 @@ o,Comic Sans,12,Black
 r,Comic Sans,12,Black
 l,Comic Sans,12,Black
 d,Comic Sans,12,Black
-!,Comic Sans,12,Black
+C,Comic Sans,12,Black
+S,Comic Sans,12,Black
+5,Comic Sans,12,Black
+8,Comic Sans,12,Black
+0,Comic Sans,12,Black
+0,Comic Sans,12,Black
