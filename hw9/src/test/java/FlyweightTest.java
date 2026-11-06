@@ -68,10 +68,8 @@ public class FlyweightTest {
         diffSize = new Size(12);
         assertEquals(trgt, sizeFac.getSize(16));
         assertNotEquals(trgt, diffSize);
-        assertNotEquals(trgt, sizeFac.getSize(16));
+        assertNotEquals(trgt, sizeFac.getSize(12));
 
         sizeFac.printPool();
-
-
     }
 }
