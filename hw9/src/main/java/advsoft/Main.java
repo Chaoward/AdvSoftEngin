@@ -1,8 +1,5 @@
 package advsoft;
 
-import java.util.ArrayList;
-
-import advsoft.flyweight.Color;
 import advsoft.flyweight.ColorFactory;
 import advsoft.flyweight.FileReading;
 import advsoft.flyweight.FontFactory;
@@ -15,6 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         flyweight();
+        proxy();
     }
 
 
@@ -101,5 +99,11 @@ public class Main {
         for (RichCharacter c : characters) {
             System.out.println(c.getChar() + "|" + c.getFont() + "|" + c.getSize() + "|" + c.getColor());
         }
+    }
+
+
+
+    public static void proxy() {
+        
     }
 }

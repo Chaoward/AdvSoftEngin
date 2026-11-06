@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.function.Predicate;
 
-import javax.naming.NameNotFoundException;
-
 public abstract class FlyweightFactory<T> {
     protected ArrayList<T> pool = new ArrayList<T>();
 
