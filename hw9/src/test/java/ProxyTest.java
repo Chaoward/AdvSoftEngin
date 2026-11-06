@@ -1,4 +1,8 @@
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
@@ -13,19 +17,19 @@ public class ProxyTest {
         MusicService server = new MusicService();
         server.songs.add(new Song()
             .ID(0)
-            .album("SquareBoB Me Boy")
+            .album("SqaureBoB Me Boy")
             .title("F.U.N")
             .duration(180)
         );
         server.songs.add(new Song()
             .ID(1)
-            .album("SquareBoB Me Boy")
+            .album("SqaureBoB Me Boy")
             .title("Campfire Song")
             .duration(180)
         );
         server.songs.add(new Song()
             .ID(2)
-            .album("SquareBoB Me Boy")
+            .album("SqaureBoB Me Boy")
             .title("Goofy Goober")
             .duration(180)
         );
@@ -42,7 +46,12 @@ public class ProxyTest {
 
         ProxyMusicService proxy = new ProxyMusicService();
 
-        //assertEquals( );
+        assertArrayEquals(proxy.searchByTitle("F.U.N").toArray(), server.searchByTitle("F.U.N").toArray());
+        
+        assertArrayEquals(proxy.searchByAlbum("SqaureBoB Me Boy").toArray(), server.searchByAlbum("SqaureBoB Me Boy").toArray());
+        
+        assertEquals(proxy.searchById(2), server.searchById(2));
+        assertNotEquals(proxy.searchById(0), server.searchById(4));
     }
 
 }
