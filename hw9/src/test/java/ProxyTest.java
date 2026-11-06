@@ -44,7 +44,7 @@ public class ProxyTest {
             .duration(60)
         );
 
-        ProxyMusicService proxy = new ProxyMusicService();
+        ProxyMusicService proxy = new ProxyMusicService(server);
 
         assertArrayEquals(proxy.searchByTitle("F.U.N").toArray(), server.searchByTitle("F.U.N").toArray());
         

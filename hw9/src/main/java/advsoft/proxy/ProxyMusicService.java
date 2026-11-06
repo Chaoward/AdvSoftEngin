@@ -3,23 +3,25 @@ package advsoft.proxy;
 import java.util.List;
 
 public class ProxyMusicService implements SongService {
+    private MusicService service;
+
+    public ProxyMusicService(MusicService service) {
+        this.service = service;
+    }
 
     @Override
     public Song searchById(Integer songID) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchById'");
+        return service.searchById(songID);
     }
 
     @Override
     public List<Song> searchByTitle(String title) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchByTitle'");
+        return service.searchByTitle(title);
     }
 
     @Override
     public List<Song> searchByAlbum(String album) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchByAlbum'");
+        return service.searchByAlbum(album);
     }
 
 }
