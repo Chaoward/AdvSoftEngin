@@ -10,6 +10,8 @@ import advsoft.flyweight.ColorFactory;
 import advsoft.flyweight.Font;
 import advsoft.flyweight.FontFactory;
 import advsoft.flyweight.RichCharacter;
+import advsoft.flyweight.Size;
+import advsoft.flyweight.SizeFactory;
 
 public class FlyweightTest {
 
@@ -54,7 +56,22 @@ public class FlyweightTest {
 
     @Test 
     public void testSize() {
-        //SizeFactory sizeFac = SizeFactory.getInstance();
-        //Size trgt = SizeFactory.getSize(12);
+        SizeFactory sizeFac = SizeFactory.getInstance();
+        Size trgt = sizeFac.getSize(12);
+        Size diffSize = sizeFac.getSize(16);
+
+        assertEquals(trgt, sizeFac.getSize(12));
+        assertNotEquals(trgt, diffSize);
+        assertNotEquals(trgt, sizeFac.getSize(16));
+
+        trgt = sizeFac.getSize(16);
+        diffSize = new Size(12);
+        assertEquals(trgt, sizeFac.getSize(16));
+        assertNotEquals(trgt, diffSize);
+        assertNotEquals(trgt, sizeFac.getSize(16));
+
+        sizeFac.printPool();
+
+
     }
 }
