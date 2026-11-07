@@ -5,6 +5,9 @@ import advsoft.flyweight.FileReading;
 import advsoft.flyweight.FontFactory;
 import advsoft.flyweight.RichCharacter;
 import advsoft.flyweight.SizeFactory;
+import advsoft.proxy.MusicService;
+import advsoft.proxy.ProxyMusicService;
+import advsoft.proxy.Song;
 
 public class Main {
     public static final String PATH = "./file.txt";
@@ -104,6 +107,57 @@ public class Main {
 
 
     public static void proxy() {
-        
+        MusicService server = new MusicService();
+        server.songs.add(new Song()
+            .ID(0)
+            .album("SqaureBoB Me Boy")
+            .title("F.U.N")
+            .duration(180)
+        );
+        server.songs.add(new Song()
+            .ID(1)
+            .album("SqaureBoB Me Boy")
+            .title("Campfire Song")
+            .duration(180)
+        );
+        server.songs.add(new Song()
+            .ID(2)
+            .album("SqaureBoB Me Boy")
+            .title("Goofy Goober")
+            .duration(180)
+        );
+        server.songs.add(new Song()
+            .ID(3)
+            .album("SqaureBoB Me Boy")
+            .title("Garry Come Home")
+            .duration(90)
+        );
+        server.songs.add(new Song()
+            .ID(3)
+            .title("Garry Come Home")
+            .duration(90)
+        );
+        server.songs.add(new Song()
+            .ID(4)
+            .title("PROCRASTINATION")
+            .duration(60)
+        );
+
+
+        ProxyMusicService proxy = new ProxyMusicService(server);
+
+        System.out.println("===== Albumm SqaureBoB Me Boy =====");
+        for (Song s : proxy.searchByAlbum("SqaureBoB Me Boy")) {
+            System.out.println(s.title);
+        }
+
+        System.out.println("===== Songs titled \"Garry Come Home\" =====");
+        for (Song s : proxy.searchByTitle("Garry Come Home")) {
+            System.out.println(s.ID + " | " + s.title + " | " + s.album);
+        }
+
+        System.out.println("===== Songs ID 2 =====");
+        System.out.println(proxy.searchById(2).title);
+
     }
 }

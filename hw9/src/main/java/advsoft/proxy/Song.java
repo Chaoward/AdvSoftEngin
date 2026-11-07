@@ -2,8 +2,8 @@ package advsoft.proxy;
 
 public class Song {
     public Integer ID = 0;
-    public String title;
-    public String album;
+    public String title = "";
+    public String album = "";
     public int duration = 0;
 
     public Song ID(Integer id) {

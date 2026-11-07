@@ -1,17 +1,17 @@
-H,Comic Sans,12,Black
-e,Comic Sans,12,Black
-l,Comic Sans,12,Black
-l,Comic Sans,12,Black
-o,Comic Sans,12,Black
+H,Calibri,12,Red
+e,Calibri,12,Red
+l,Calibri,12,Red
+l,Calibri,12,Red
+o,Calibri,12,Red
 _,Comic Sans,12,Black
-W,Comic Sans,12,Black
-o,Comic Sans,12,Black
-r,Comic Sans,12,Black
-l,Comic Sans,12,Black
-d,Comic Sans,12,Black
-C,Comic Sans,12,Black
-S,Comic Sans,12,Black
-5,Comic Sans,12,Black
-8,Comic Sans,12,Black
-0,Comic Sans,12,Black
-0,Comic Sans,12,Black
+W,Comic Sans,32,Light Blue
+o,Comic Sans,32,Light Blue
+r,Comic Sans,32,Light Blue
+l,Comic Sans,32,Light Blue
+d,Comic Sans,32,Light Blue
+C,Impact,40,Red
+S,Impact,40,Red
+5,Impact,40,Red
+8,Impact,40,Red
+0,Impact,40,Red
+0,Impact,40,Red
