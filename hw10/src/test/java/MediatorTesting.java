@@ -12,6 +12,10 @@ public class MediatorTesting {
         User user2 = new User("Alice", server);
         User user3 = new User("Middle-Man", server);
 
+        server.registerUser(user1);
+        server.registerUser(user2);
+        server.registerUser(user3);
+
         user1.sendMessage("Hello Alice!", "Alice");
         Message lastMsg = user2.getlastMessage();
         assertEquals(lastMsg.content, "Hello Alice!");
@@ -25,15 +29,16 @@ public class MediatorTesting {
         assertArrayEquals(lastMsg.recipients, new User[] {user1});
 
         String[] recipients = new String[] {"Alice", "Middle-Man"};
+        User[] expectedRecip = new User[] {user2, user3};
         user1.sendMessage("Let's do this!", recipients);
         lastMsg = user2.getlastMessage();
         assertEquals(lastMsg.content, "Let's do this!");
         assertEquals(lastMsg.sender, user1);
-        assertArrayEquals(lastMsg.recipients, recipients);
+        assertArrayEquals(lastMsg.recipients, expectedRecip);
         lastMsg = user3.getlastMessage();
         assertEquals(lastMsg.content, "Let's do this!");
         assertEquals(lastMsg.sender, user1);
-        assertArrayEquals(lastMsg.recipients, recipients);
+        assertArrayEquals(lastMsg.recipients, expectedRecip);
         
 
     }
