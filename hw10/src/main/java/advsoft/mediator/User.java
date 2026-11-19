@@ -30,6 +30,10 @@ public class User {
 
 
     public void receiveMessage(Message msg) {
+        for (User u : blockList) {
+            if (msg.sender == u) return;
+        }
+
         history.pushMessage(msg);
     }
 
