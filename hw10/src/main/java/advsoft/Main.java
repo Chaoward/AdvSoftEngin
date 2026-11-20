@@ -1,17 +1,19 @@
 package advsoft;
 
+import java.util.Iterator;
+
 import advsoft.mediator.*;
 
 
 public class Main {
     public static void main(String[] args) {
-        mediatorMemento();
-        iterator();
+        mediatorMementoIterator();
+
     }
 
 
 
-    public static void mediatorMemento() {
+    public static void mediatorMementoIterator() {
         ChatServer server = new MessegePlatform();
 
         User alice = new User("Alice", server);
@@ -45,6 +47,7 @@ public class Main {
 
         printHistory(middleman);
         printHistory(bob);
+        printHistoryIter(alice, bob);
     }
     
     private static void printHistory(User user) {
@@ -56,19 +59,23 @@ public class Main {
         }
     }
 
+    private static void printHistoryIter(User userToPrint, User userToSearch) {
+        Iterator<Message.Memento> iter = userToPrint.iterator(userToSearch);
+        Message.Memento curMsg;
+        System.out.println("===== " + userToPrint.getName() + "\'s History of " + userToSearch.getName() + " =====");
+        while (iter.hasNext()) {
+            curMsg = iter.next();
+            System.out.print("[" + curMsg.sender.getName() + "->" + usersToStr(curMsg.recipients) + "]: ");
+            System.out.print(curMsg.content);
+            System.out.println(" (" + curMsg.timestamp + ")");
+        }
+    }
+
     private static String usersToStr(User[] users) {
         String results = "";
         for (User u : users) {
             results += u.getName() + "|";
         }
         return results;
-    }
-
-     
-
-
-
-    public static void iterator() {
-    
     }
 }
