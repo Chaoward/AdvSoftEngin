@@ -1,8 +1,10 @@
 package advsoft.mediator;
 
+import advsoft.iterator.IterableByUser;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class User {
+public class User implements IterableByUser {
     private ChatServer server;
     private String name;
     private ChatHistory history = new ChatHistory();
@@ -57,5 +59,11 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+
+    @Override
+    public Iterator<Message.Memento> iterator(User userToSearch) {
+        return history.iterator(userToSearch);
     }
 } 

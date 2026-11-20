@@ -1,8 +1,13 @@
 package advsoft.mediator;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Stack;
+import advsoft.iterator.IterableByUser;
+import advsoft.iterator.SearchMessagesByUser;
 
-public class ChatHistory {
+public class ChatHistory implements IterableByUser {
     private final Stack<Message.Memento> history = new Stack<Message.Memento>();
     private Message lastMessage;
 
@@ -35,5 +40,13 @@ public class ChatHistory {
         temp = history.toArray(temp);
         temp[history.size()] = lastMessage.snapshot();
         return temp;
+    }
+
+    @Override
+    public Iterator<Message.Memento> iterator(User userToSearchWith) {
+        Stack<Message.Memento> copy = new Stack<Message.Memento>();
+        copy.addAll(history);
+        copy.push(lastMessage.snapshot());
+        return new SearchMessagesByUser(userToSearchWith, copy);
     }
 }
